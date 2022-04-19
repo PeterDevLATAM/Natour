@@ -6,3 +6,180 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* place to set fonts bc font is inherited */
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #777;
+  padding: 30px;
+}
+
+.header {
+  height: 95vh; /* 95% of viewport hight */
+  background-image: linear-gradient(
+      to right,
+      hsla(111, 55%, 64%, 0.799),
+      hsla(160, 64%, 43%, 0.8)
+    ),
+    url("../img/hero.jpg"); /* To use 2 bkground images you just separate with a comma */
+  background-size: cover;
+  background-position: top;
+
+  /* New peoperty of clip-path, needs the coordenates related to the parent 
+   element to define a shape to make visible the parent element or not
+   example: 
+   clip-path: polygon(x y,x y,x y); it goes clockwise starting for topleft
+   */
+
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+  position: relative; /* That makes the element a reference for the absolute position childs */
+}
+
+.logo-box {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+}
+
+.logo {
+  height: 35px;
+}
+
+.text-box {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* Thats a way to center blocks, bc translate is relative to the 
+    element not to the parent  */
+  text-align: center; /* to align the btn (link) bc it is inline-block and behaves like text */
+}
+
+.heading-primary {
+  color: white;
+  text-transform: uppercase;
+  margin-bottom: 60px;
+}
+.heading-primary-main {
+  display: block;
+  font-size: 60px;
+  font-weight: 400;
+  letter-spacing: 35px;
+
+  /* here you call the correspondent keyframe and assign a duration */
+
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+}
+.heading-primary-sub {
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 17.4px;
+
+  animation-name: moveInRight;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+}
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  80% {
+    transform: translateX(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  80% {
+    transform: translateX(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 15px 40px;
+  display: inline-block;
+  border-radius: 100px;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-white {
+  background-color: #fff;
+  color: #777;
+}
+
+.btn::after {
+  content: "";
+  display: inline-block; /* bc the parent (btn) is also inline-block */
+  height: 100%;
+  width: 100%;
+  border-radius: 100px;
+  /* put it behind the btn */
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+
+  transition: all 0.4s;
+}
+.btn-white::after {
+  background-color: white;
+}  
+
+.btn:hover::after {
+  transform: scaleX(1.6) scaleY(1.4);
+  opacity: 0;
+}
+.btn-animated {
+  animation: moveInBottom 0.5s ease-out .75s; 
+  animation-fill-mode: backwards; /* Applies the style of the 0% before the delay kicks in */
+}

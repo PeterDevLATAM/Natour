@@ -7,17 +7,25 @@ Dark green: #28b485
 
 */
 
-* {
-  margin: 0;
+*,
+*::before,
+*::after { 
+  margin: 0;  
   padding: 0;
-  box-sizing: border-box;
-}
+  box-sizing: inherit; /* It's considered a slightly better practice to do it like this bc it makes it easy to change 
+  when using plugins   */
+} 
 
-html{
+html {
   /* We did this in order to make it easy when converting all length units to rem
   rem units are based on the root element computed font seize
   */
-  font-size: 10px;
+  /* font-size: 10px;
+  
+  it can be done like this but is a bad practice to overwrite the default font size (16px)
+   or whatever font size the user has as defalut so is better to declare it in porcentages of the default  */
+
+  font-size: 62.5%; /* 10/16=0.625 */
 }
 
 body {
@@ -28,6 +36,8 @@ body {
   line-height: 1.7;
   color: #777;
   padding: 3rem;
+
+  box-sizing: border-box;
 }
 
 .header {
@@ -52,17 +62,17 @@ body {
   position: relative; /* That makes the element a reference for the absolute position childs */
 }
 
-.logo-box {
+.header__logo-box {
   position: absolute;
   top: 4rem;
   left: 4rem;
 }
 
-.logo {
+.header__logo {
   height: 3.5rem;
 }
 
-.text-box {
+.header__text-box {
   position: absolute;
   top: 40%;
   left: 50%;
@@ -77,7 +87,7 @@ body {
   text-transform: uppercase;
   margin-bottom: 6rem;
 }
-.heading-primary-main {
+.heading-primary--main {
   display: block;
   font-size: 6rem;
   font-weight: 400;
@@ -89,7 +99,7 @@ body {
   animation-duration: 1s;
   animation-timing-function: ease-out;
 }
-.heading-primary-sub {
+.heading-primary--sub {
   display: block;
   font-size: 2rem;
   font-weight: 700;
@@ -160,7 +170,7 @@ body {
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
 
-.btn-white {
+.btn--white {
   background-color: #fff;
   color: #777;
 }
@@ -174,20 +184,20 @@ body {
   /* put it behind the btn */
   position: absolute;
   top: 0;
-  left: 0; 
+  left: 0;
   z-index: -1;
 
   transition: all 0.4s;
 }
-.btn-white::after {
+.btn--white::after {
   background-color: white;
-}  
+}
 
 .btn:hover::after {
   transform: scaleX(1.6) scaleY(1.4);
   opacity: 0;
 }
-.btn-animated {
-  animation: moveInBottom 0.5s ease-out .75s; 
+.btn--animated {
+  animation: moveInBottom 0.5s ease-out 0.75s;
   animation-fill-mode: backwards; /* Applies the style of the 0% before the delay kicks in */
 }

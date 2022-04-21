@@ -1,20 +1,11 @@
-/*
-COLORS:
-
-Light green: #7ed56f
-Medium green: #55c57a
-Dark green: #28b485
-
-*/
-
 *,
 *::before,
-*::after { 
-  margin: 0;  
+*::after {
+  margin: 0;
   padding: 0;
-  box-sizing: inherit; /* It's considered a slightly better practice to do it like this bc it makes it easy to change 
-  when using plugins   */
-} 
+  box-sizing: inherit;
+  /* It's considered a slightly better practice to do it like this bc it makes it easy to change 
+  when using plugins   */ }
 
 html {
   /* We did this in order to make it easy when converting all length units to rem
@@ -24,9 +15,8 @@ html {
   
   it can be done like this but is a bad practice to overwrite the default font size (16px)
    or whatever font size the user has as defalut so is better to declare it in porcentages of the default  */
-
-  font-size: 62.5%; /* 10/16=0.625 */
-}
+  font-size: 62.5%;
+  /* 10/16=0.625 */ }
 
 body {
   /* place to set fonts bc font is inherited */
@@ -36,120 +26,90 @@ body {
   line-height: 1.7;
   color: #777;
   padding: 3rem;
-
-  box-sizing: border-box;
-}
+  box-sizing: border-box; }
 
 .header {
-  height: 95vh; /* 95% of viewport hight */
-  background-image: linear-gradient(
-      to right,
-      hsla(111, 55%, 64%, 0.799),
-      hsla(160, 64%, 43%, 0.8)
-    ),
-    url("../img/hero.jpg"); /* To use 2 bkground images you just separate with a comma */
+  height: 95vh;
+  /* 95% of viewport hight */
+  background-image: linear-gradient(to right, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../img/hero.jpg");
+  /* To use 2 bkground images you just separate with a comma */
   background-size: cover;
   background-position: top;
-
   /* New peoperty of clip-path, needs the coordenates related to the parent 
    element to define a shape to make visible the parent element or not
    example: 
    clip-path: polygon(x y,x y,x y); it goes clockwise starting for topleft
    */
-
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-
-  position: relative; /* That makes the element a reference for the absolute position childs */
-}
-
-.header__logo-box {
-  position: absolute;
-  top: 4rem;
-  left: 4rem;
-}
-
-.header__logo {
-  height: 3.5rem;
-}
-
-.header__text-box {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  /* Thats a way to center blocks, bc translate is relative to the 
-    element not to the parent  */
-  text-align: center; /* to align the btn (link) bc it is inline-block and behaves like text */
-}
+  position: relative;
+  /* That makes the element a reference for the absolute position childs */ }
+  .header__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem; }
+  .header__logo {
+    height: 3.5rem; }
+  .header__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* Thats a way to center blocks, bc translate is relative to the 
+      element not to the parent  */
+    text-align: center;
+    /* to align the btn (link) bc it is inline-block and behaves like text */ }
 
 .heading-primary {
-  color: white;
+  color: #fff;
   text-transform: uppercase;
-  margin-bottom: 6rem;
-}
-.heading-primary--main {
-  display: block;
-  font-size: 6rem;
-  font-weight: 400;
-  letter-spacing: 3.5rem;
-
-  /* here you call the correspondent keyframe and assign a duration */
-
-  animation-name: moveInLeft;
-  animation-duration: 1s;
-  animation-timing-function: ease-out;
-}
-.heading-primary--sub {
-  display: block;
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: 1.74rem;
-
-  animation-name: moveInRight;
-  animation-duration: 1s;
-  animation-timing-function: ease-out;
-}
+  margin-bottom: 6rem; }
+  .heading-primary--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    /* here you call the correspondent keyframe and assign a duration */
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out; }
+  .heading-primary--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.74rem;
+    animation-name: moveInRight;
+    animation-duration: 1s;
+    animation-timing-function: ease-out; }
 
 @keyframes moveInLeft {
   0% {
     opacity: 0;
-    transform: translateX(-10rem);
-  }
+    transform: translateX(-10rem); }
   80% {
-    transform: translateX(1rem);
-  }
+    transform: translateX(1rem); }
   100% {
     opacity: 1;
-    transform: translate(0);
-  }
-}
+    transform: translate(0); } }
+
 @keyframes moveInRight {
   0% {
     opacity: 0;
-    transform: translateX(10rem);
-  }
+    transform: translateX(10rem); }
   80% {
-    transform: translateX(-1rem);
-  }
+    transform: translateX(-1rem); }
   100% {
     opacity: 1;
-    transform: translate(0);
-  }
-}
+    transform: translate(0); } }
+
 @keyframes moveInBottom {
   0% {
     opacity: 0;
-    transform: translateY(3rem);
-  }
-
+    transform: translateY(3rem); }
   100% {
     opacity: 1;
-    transform: translate(0);
-  }
-}
+    transform: translate(0); } }
 
-.btn:link,
-.btn:visited {
+.btn:link, .btn:visited {
   text-transform: uppercase;
   text-decoration: none;
   padding: 1.5rem 4rem;
@@ -157,27 +117,23 @@ body {
   border-radius: 10rem;
   transition: all 0.2s;
   position: relative;
-  font-size: 1.6rem;
-}
+  font-size: 1.6rem; }
 
 .btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
-}
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
+  .btn:hover::after {
+    transform: scaleX(1.6) scaleY(1.4);
+    opacity: 0; }
 
 .btn:active {
   transform: translateY(-1px);
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
-}
-
-.btn--white {
-  background-color: #fff;
-  color: #777;
-}
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
 
 .btn::after {
   content: "";
-  display: inline-block; /* bc the parent (btn) is also inline-block */
+  display: inline-block;
+  /* bc the parent (btn) is also inline-block */
   height: 100%;
   width: 100%;
   border-radius: 10rem;
@@ -186,18 +142,15 @@ body {
   top: 0;
   left: 0;
   z-index: -1;
+  transition: all 0.4s; }
 
-  transition: all 0.4s;
-}
-.btn--white::after {
-  background-color: white;
-}
+.btn--white {
+  background-color: #fff;
+  color: #777; }
+  .btn--white::after {
+    background-color: #fff; }
 
-.btn:hover::after {
-  transform: scaleX(1.6) scaleY(1.4);
-  opacity: 0;
-}
 .btn--animated {
   animation: moveInBottom 0.5s ease-out 0.75s;
-  animation-fill-mode: backwards; /* Applies the style of the 0% before the delay kicks in */
-}
+  animation-fill-mode: backwards;
+  /* Applies the style of the 0% before the delay kicks in */ }

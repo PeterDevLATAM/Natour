@@ -1,0 +1,25 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; /* It's considered a slightly better practice to do it like this bc it makes it easy to change 
+  when using plugins   */
+}
+
+html {
+  /* We did this in order to make it easy when converting all length units to rem
+  rem units are based on the root element computed font seize
+  */
+  /* font-size: 10px;
+  
+  it can be done like this but is a bad practice to overwrite the default font size (16px)
+   or whatever font size the user has as defalut so is better to declare it in porcentages of the default  */
+
+   //This sets what 1rem is 
+  font-size: 62.5%; /* 10/16=0.625 */
+}
+
+body {
+  box-sizing: border-box;
+}

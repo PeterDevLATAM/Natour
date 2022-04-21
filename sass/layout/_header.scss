@@ -1,0 +1,41 @@
+
+.header {
+    height: 95vh; /* 95% of viewport hight */
+    background-image: linear-gradient(
+        to right,
+        rgba($color-primary-light, 0.8),
+        rgba($color-primary-dark, 0.8)
+      ),
+      url("../img/hero.jpg"); /* To use 2 bkground images you just separate with a comma */
+    background-size: cover;
+    background-position: top;
+  
+    /* New peoperty of clip-path, needs the coordenates related to the parent 
+     element to define a shape to make visible the parent element or not
+     example: 
+     clip-path: polygon(x y,x y,x y); it goes clockwise starting for topleft
+     */
+  
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  
+    position: relative; /* That makes the element a reference for the absolute position childs */
+  
+    &__logo-box {
+      position: absolute;
+      top: 4rem;
+      left: 4rem;
+    }
+    &__logo {
+      height: 3.5rem;
+    }
+  
+    &__text-box {
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      /* Thats a way to center blocks, bc translate is relative to the 
+        element not to the parent  */
+      text-align: center; /* to align the btn (link) bc it is inline-block and behaves like text */
+    }
+  }

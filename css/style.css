@@ -82,7 +82,29 @@ body {
   color: #777;
   padding: 3rem; }
 
+.heading-secondary {
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  background-image: linear-gradient(to right, #7ed56f, #28b485);
+  display: inline-block;
+  /* A way to make gradients over text using the new background-clip */
+  -webkit-background-clip: text;
+  color: transparent;
+  letter-spacing: 0.2rem;
+  transition: all .2s; }
+  .heading-secondary:hover {
+    transform: skewY(2deg) skewX(15deg); }
+
+.u-center-text {
+  text-align: center; }
+
 /* Pages */
+.section-about {
+  background-color: #f7f7f7;
+  padding: 25rem 0;
+  margin-top: -20vh; }
+
 /* Components */
 .btn:link, .btn:visited {
   text-transform: uppercase;

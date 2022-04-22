@@ -1,0 +1,8 @@
+@mixin clearfix { //append a pseudoelement wich will then clear this floats
+    &::after {
+        content: "";
+        display: table;
+        clear: both; //clears float left and floar right (both)
+    }
+
+}

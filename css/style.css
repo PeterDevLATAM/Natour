@@ -1,86 +1,5 @@
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: inherit;
-  /* It's considered a slightly better practice to do it like this bc it makes it easy to change 
-  when using plugins   */ }
-
-html {
-  /* We did this in order to make it easy when converting all length units to rem
-  rem units are based on the root element computed font seize
-  */
-  /* font-size: 10px;
-  
-  it can be done like this but is a bad practice to overwrite the default font size (16px)
-   or whatever font size the user has as defalut so is better to declare it in porcentages of the default  */
-  font-size: 62.5%;
-  /* 10/16=0.625 */ }
-
-body {
-  /* place to set fonts bc font is inherited */
-  font-family: "Lato", sans-serif;
-  font-weight: 400;
-  font-size: 1.6rem;
-  line-height: 1.7;
-  color: #777;
-  padding: 3rem;
-  box-sizing: border-box; }
-
-.header {
-  height: 95vh;
-  /* 95% of viewport hight */
-  background-image: linear-gradient(to right, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../img/hero.jpg");
-  /* To use 2 bkground images you just separate with a comma */
-  background-size: cover;
-  background-position: top;
-  /* New peoperty of clip-path, needs the coordenates related to the parent 
-   element to define a shape to make visible the parent element or not
-   example: 
-   clip-path: polygon(x y,x y,x y); it goes clockwise starting for topleft
-   */
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-  position: relative;
-  /* That makes the element a reference for the absolute position childs */ }
-  .header__logo-box {
-    position: absolute;
-    top: 4rem;
-    left: 4rem; }
-  .header__logo {
-    height: 3.5rem; }
-  .header__text-box {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    /* Thats a way to center blocks, bc translate is relative to the 
-      element not to the parent  */
-    text-align: center;
-    /* to align the btn (link) bc it is inline-block and behaves like text */ }
-
-.heading-primary {
-  color: #fff;
-  text-transform: uppercase;
-  margin-bottom: 6rem; }
-  .heading-primary--main {
-    display: block;
-    font-size: 6rem;
-    font-weight: 400;
-    letter-spacing: 3.5rem;
-    /* here you call the correspondent keyframe and assign a duration */
-    animation-name: moveInLeft;
-    animation-duration: 1s;
-    animation-timing-function: ease-out; }
-  .heading-primary--sub {
-    display: block;
-    font-size: 2rem;
-    font-weight: 700;
-    letter-spacing: 1.74rem;
-    animation-name: moveInRight;
-    animation-duration: 1s;
-    animation-timing-function: ease-out; }
-
+/* Abstacts */
+/* Base */
 @keyframes moveInLeft {
   0% {
     opacity: 0;
@@ -109,6 +28,62 @@ body {
     opacity: 1;
     transform: translate(0); } }
 
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  /* It's considered a slightly better practice to do it like this bc it makes it easy to change 
+  when using plugins   */ }
+
+html {
+  /* We did this in order to make it easy when converting all length units to rem
+  rem units are based on the root element computed font seize
+  */
+  /* font-size: 10px;
+  
+  it can be done like this but is a bad practice to overwrite the default font size (16px)
+   or whatever font size the user has as defalut so is better to declare it in porcentages of the default  */
+  font-size: 62.5%;
+  /* 10/16=0.625 */ }
+
+body {
+  box-sizing: border-box; }
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+  margin-bottom: 6rem; }
+  .heading-primary--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    /* here you call the correspondent keyframe and assign a duration */
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out; }
+  .heading-primary--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.74rem;
+    animation-name: moveInRight;
+    animation-duration: 1s;
+    animation-timing-function: ease-out; }
+
+body {
+  /* place to set fonts bc font is inherited */
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.7;
+  color: #777;
+  padding: 3rem; }
+
+/* Pages */
+/* Components */
 .btn:link, .btn:visited {
   text-transform: uppercase;
   text-decoration: none;
@@ -154,3 +129,64 @@ body {
   animation: moveInBottom 0.5s ease-out 0.75s;
   animation-fill-mode: backwards;
   /* Applies the style of the 0% before the delay kicks in */ }
+
+/* Layout */
+.header {
+  height: 95vh;
+  /* 95% of viewport hight */
+  background-image: linear-gradient(to right, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../img/hero.jpg");
+  /* To use 2 bkground images you just separate with a comma */
+  background-size: cover;
+  background-position: top;
+  /* New peoperty of clip-path, needs the coordenates related to the parent 
+     element to define a shape to make visible the parent element or not
+     example: 
+     clip-path: polygon(x y,x y,x y); it goes clockwise starting for topleft
+     */
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  position: relative;
+  /* That makes the element a reference for the absolute position childs */ }
+  .header__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem; }
+  .header__logo {
+    height: 3.5rem; }
+  .header__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* Thats a way to center blocks, bc translate is relative to the 
+        element not to the parent  */
+    text-align: center;
+    /* to align the btn (link) bc it is inline-block and behaves like text */ }
+
+.row {
+  max-width: 114rem;
+  margin: 0 auto;
+  background-color: #eee;
+  /* Attribiute selector to apply rules to all col-... classes */ }
+  .row::after {
+    content: "";
+    display: table;
+    clear: both; }
+  .row:not(:last-child) {
+    margin-bottom: 8rem; }
+  .row [class^="col-"] {
+    background-color: lightblue;
+    float: left; }
+    .row [class^="col-"]:not(:last-child) {
+      margin-right: 6rem; }
+  .row .col-1-of-2 {
+    width: calc((100% - 6rem) / 2); }
+  .row .col-1-of-3 {
+    width: calc((100% - 2 * 6rem) / 3); }
+  .row .col-1-of-4 {
+    width: calc((100% - 3 * 6rem) / 4); }
+  .row .col-2-of-3 {
+    width: calc( ((100% - 2 * 6rem) / 3) * 2 + 6rem); }
+  .row .col-2-of-4 {
+    width: calc( ((100% - 3 * 6rem) / 4) * 2 + 6rem); }
+  .row .col-3-of-4 {
+    width: calc( ((100% - 3 * 6rem) / 4) * 3 + 2 * 6rem); }

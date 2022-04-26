@@ -1,0 +1,44 @@
+.story {
+  width: 75%;
+  margin: 0 auto;
+  box-shadow: 0 3rem 6rem rgba($color-black, 0.1);
+  background-color: rgba($color-white, 0.6);
+  border-radius: 3px;
+  padding: 6rem;
+  padding-left: 9rem;
+  font-size: $default-font-size;
+
+  transform: skewX(-12deg);
+
+  /* Select all direct child */
+  & > * {
+    transform: skewX(12deg);
+    //It doesn't work with the img bc it already has a trasnform property, so we need to add it.
+  }
+
+  &__shape {
+    width: 15rem;
+    height: 15rem;
+    float: left;
+    -webkit-shape-outside: circle(50% at 50% 50%);
+    shape-outside: circle(50% at 50% 50%);
+    -webkit-clip-path: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+    position: relative;
+    transform: translateX(-3rem) skewX(12deg);
+  }
+
+  &__image {
+    height: 100%;
+  }
+
+  &__caption {
+    position: absolute;
+    color: $color-white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    text-transform: uppercase;
+  }
+}

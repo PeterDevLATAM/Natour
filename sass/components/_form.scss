@@ -1,0 +1,53 @@
+.form {
+  &__group {
+    &:not(:last-child) {
+      margin-bottom: 2rem;
+    }
+  }
+
+  &__input {
+    font-size: 1.5rem;
+    font-family: inherit; //Forms don't inherit font or color
+    color: inherit;
+    padding: 1.5rem 2rem; //always a little more on the sides
+    border-radius: 2px;
+    background-color: rgba($color-white, 0.9);
+    border: none;
+
+    border-bottom: 3px solid transparent; //we do this to avoid translation of those 3px when focused
+    width: 90%;
+    display: block; //to make it have it's own line
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 1rem 2rem rgba($color-black, 0.1);
+      border-bottom: 3px solid $color-primary;
+
+      &:invalid {
+        border-bottom: 3px solid $color-secondary-dark;
+      }
+    }
+
+    &::-webkit-input-placeholder {
+      color: $color-gray-dark-2;
+    }
+  }
+  &__label {
+    font-size: 1.2rem;
+    margin-left: 2rem;
+    font-weight: 700;
+    margin-top: 0.7rem;
+    display: block; //otherwise we can't use box model properties on the text
+    transition: all .2s;
+    opacity: 1;
+  }
+
+  //In order to select the label when place holder is shown in input or not we ned to separate the rules
+  // + is a adjacent sibling selector
+  &__input:placeholder-shown + &__label{
+    opacity: 0;
+    visibility: hidden; // if we dont do this the element, although transparent will still on the page.
+    // and we use opacity bc we can't animate visibility
+    transform: translateY(-4rem);
+  }
+}

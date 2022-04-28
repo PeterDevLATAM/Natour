@@ -1,15 +1,30 @@
-@mixin clearfix { //append a pseudoelement wich will then clear this floats
-    &::after {
-        content: "";
-        display: table;
-        clear: both; //clears float left and floar right (both)
-    }
-
+@mixin clearfix {
+  //append a pseudoelement wich will then clear this floats
+  &::after {
+    content: "";
+    display: table;
+    clear: both; //clears float left and floar right (both)
+  }
 }
-@mixin absCenter{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+@mixin absCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
+// MEDIA QUERY MANAGER
+
+/*  
+0- 600px:       Phone
+600 - 900px:    Tablet portrait
+900 - 1200px:   Tablet landscape
+[1200 -1800px] is where our normal styles apply
+1800px + :      Big desktop 
+*/
+
+@mixin respond-phone {
+  @media (max-width: 600px) {
+    @content;
+  }
 }

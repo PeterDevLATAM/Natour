@@ -1,4 +1,11 @@
 /* Abstacts */
+/*  
+0- 600px:       Phone
+600 - 900px:    Tablet portrait
+900 - 1200px:   Tablet landscape
+[1200 -1800px] is where our normal styles apply
+1800px + :      Big desktop 
+*/
 /* Base */
 @keyframes moveInLeft {
   0% {
@@ -47,6 +54,9 @@ html {
    or whatever font size the user has as defalut so is better to declare it in porcentages of the default  */
   font-size: 62.5%;
   /* 10/16=0.625 */ }
+  @media (max-width: 600px) {
+    html {
+      font-size: 50%; } }
 
 body {
   box-sizing: border-box; }

@@ -16,8 +16,11 @@ html {
   it can be done like this but is a bad practice to overwrite the default font size (16px)
    or whatever font size the user has as defalut so is better to declare it in porcentages of the default  */
 
-   //This sets what 1rem is 
+  //This sets what 1rem is
   font-size: 62.5%; /* 10/16=0.625 */
+  @include respond-phone {
+    font-size: 50%;
+  }
 }
 
 body {

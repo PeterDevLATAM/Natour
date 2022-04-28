@@ -48,7 +48,7 @@
     width: 0;
   }
   &__list {
-    @include centerContent;
+    @include absCenter;
     list-style: none;
     text-align: center;
     width: 100%;

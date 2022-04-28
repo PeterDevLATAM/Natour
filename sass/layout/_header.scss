@@ -9,16 +9,17 @@
       url("../img/hero.jpg"); /* To use 2 bkground images you just separate with a comma */
     background-size: cover;
     background-position: top;
-  
     /* New peoperty of clip-path, needs the coordenates related to the parent 
      element to define a shape to make visible the parent element or not
      example: 
      clip-path: polygon(x y,x y,x y); it goes clockwise starting for topleft
      */
-  
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-  
     position: relative; /* That makes the element a reference for the absolute position childs */
+
+    @include respond(phone){
+      clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+    }
   
     &__logo-box {
       position: absolute;

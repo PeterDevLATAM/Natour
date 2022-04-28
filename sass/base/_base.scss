@@ -17,12 +17,35 @@ html {
    or whatever font size the user has as defalut so is better to declare it in porcentages of the default  */
 
   //This sets what 1rem is
-  font-size: 62.5%; /* 10/16=0.625 */
-  @include respond-phone {
-    font-size: 50%;
+  font-size: 62.5%; /* 1rem = 10px 10px/16px=0.625 */
+ 
+
+  
+  // @include respond(phone) {  //We dont need this one bc its lower than tab-port and those styles will apply 
+  //   font-size: 50%;
+  // }
+  @include respond(tab-land) {
+    font-size: 56.25%; //1rem= 9px 9/16 =0.5625 => 56.25%
+    padding: 0;
+  }
+
+  @include respond(tab-port) {
+    font-size: 50%; //1rem= 8px 8/16 =0.5 => 50%
+    
+  }
+  
+ 
+  @include respond(big-desktop) {
+    font-size: 75%; //1rem= 12px 12/16 =0.75 => 75%%
   }
 }
 
 body {
   box-sizing: border-box;
+  padding: 3rem;
+  
+  @include respond(tab-port) {
+    padding: 0;
+    
+  }
 }

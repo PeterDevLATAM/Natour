@@ -8,13 +8,26 @@
   padding-left: 9rem;
   font-size: $default-font-size;
   backface-visibility: hidden;
-
   transform: skewX(-12deg);
+
+  @include respond(tab-port) {
+    width: 100%;
+    padding: 4rem;
+    padding-left: 7rem;
+
+  }
+  @include respond(phone) {
+    transform: skewX(0);
+  }
 
   /* Select all direct child */
   & > * {
     transform: skewX(12deg);
     //It doesn't work with the img bc it already has a trasnform property, so we need to add it.
+
+    @include respond(phone) {
+      transform: skewX(0);
+    }
   }
 
   &__shape {
@@ -27,8 +40,12 @@
     clip-path: circle(50% at 50% 50%);
     position: relative;
     transform: translateX(-3rem) skewX(12deg);
-    backface-visibility: hidden;    
+    backface-visibility: hidden;
     overflow: hidden;
+    
+    @include respond(phone) {
+      transform: translateX(-3rem) skewX(0);
+    }
   }
 
   &__image {
@@ -45,22 +62,18 @@
     left: 50%;
     transform: translate(-50%, 20%);
     text-align: center;
-    text-transform: uppercase ;
+    text-transform: uppercase;
     opacity: 0;
 
     transition: all 0.5s;
   }
 
   &:hover &__caption {
-      transform: translate(-50%, -50%);
-      opacity: 1;
-
+    transform: translate(-50%, -50%);
+    opacity: 1;
   }
   &:hover &__image {
     transform: translateX(-4rem) scale(1);
     filter: blur(3px) brightness(90%);
-
-      
-
   }
 }

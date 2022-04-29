@@ -103,17 +103,17 @@
   // FUNCTIONALITY
 
   &__checkbox:checked ~ &__background {
-    transform: scale(62);
+    transform: scale(75);
 
     @include respond(tab-land) {
-      transform: scale(50);
+      transform: scale(80);
     }
     @include respond(phone) {
-      transform: scale(40);
+      transform: scale(75);
     }
     
     @include respond(big-desktop) {
-      transform: scale(80);
+      transform: scale(100);
     }
 
   }

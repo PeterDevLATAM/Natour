@@ -208,7 +208,9 @@
                     <p class="card__price-only">Only</p>
                     <p class="card__price-value">$297</p>
                   </div>
-                  <a href="#popup" class="btn btn--white btn--animated">Book Now!</a>
+                  <a href="#popup" class="btn btn--white btn--animated"
+                    >Book Now!</a
+                  >
                 </div>
               </div>
             </div>
@@ -241,7 +243,9 @@
                     <p class="card__price-only">Only</p>
                     <p class="card__price-value">$497</p>
                   </div>
-                  <a href="#popup" class="btn btn--white btn--animated">Book Now!</a>
+                  <a href="#popup" class="btn btn--white btn--animated"
+                    >Book Now!</a
+                  >
                 </div>
               </div>
             </div>
@@ -274,7 +278,9 @@
                     <p class="card__price-only">Only</p>
                     <p class="card__price-value">$897</p>
                   </div>
-                  <a href="#popup" class="btn btn--white btn--animated">Book Now!</a>
+                  <a href="#popup" class="btn btn--white btn--animated"
+                    >Book Now!</a
+                  >
                 </div>
               </div>
             </div>
@@ -351,7 +357,7 @@
         </div>
       </section>
       <!-- /Section Stories -->
-      
+
       <!-- Section Booking -->
       <section class="section-book">
         <div class="row">
@@ -421,7 +427,21 @@
     <!-- Footer -->
     <footer class="footer">
       <div class="footer__logo-box">
-        <img src="img/logo-green-2x.png" alt="Full logo" class="footer__logo" />
+        <picture class="footer__logo">
+          <source
+            srcset="
+              img/logo-green-small-1x.png 1x,
+              img/logo-green-small-2x.png 2x
+            "
+            media="(max-width: 37.5rem)"
+          />
+          <img
+            srcset="img/logo-green-1x.png 1x, img/logo-green-2x.png 2x"
+            alt="Full logo"
+          />
+        </picture>
+        </div>
+
         <div class="row">
           <div class="col-1-of-2">
             <div class="footer__navigation">
@@ -456,7 +476,8 @@
           </div>
         </div>
       </div>
-    </footer> <!-- /Footer -->
+    </footer>
+    <!-- /Footer -->
 
     <!-- Popup -->
     <div class="popup" id="popup">
@@ -481,7 +502,6 @@
             adipisicing elit. Similique, harum sunt omnis consequatur, laborum
             quidem distinctio provident facilis fuga praesentium perspiciatis
             obcaecati eaque deleniti?
-            
           </p>
           <a href="#" class="btn btn--green u-margin-top-medium">Book Now</a>
         </div>

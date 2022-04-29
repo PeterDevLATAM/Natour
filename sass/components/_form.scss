@@ -17,6 +17,9 @@
     border-bottom: 3px solid transparent; //we do this to avoid translation of those 3px when focused
     width: 90%;
     display: block; //to make it have it's own line
+    @include respond(phone){
+      width: 100%;
+    }
 
     &:focus {
       outline: none;
@@ -54,6 +57,10 @@
   &__radio-group {
     width: 49%;
     display: inline-block;
+    @include respond(phone){
+      width: 100%;
+      margin-bottom: 2rem;
+    }
   }
 
   &__radio-label {

@@ -220,11 +220,21 @@ body {
   background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.9) 50%, transparent 50%), url("/img/nat-10.jpg");
   background-size: cover;
   border-radius: 3px;
-  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.2);
-  height: 50rem; }
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.2); }
+  @media (max-width: 75em) {
+    .book {
+      background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.9) 65%, transparent 65%), url("/img/nat-10.jpg"); } }
+  @media (max-width: 56.25em) {
+    .book {
+      background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.9) 100%, transparent 0%), url("/img/nat-10.jpg");
+      color: #333; } }
   .book__form {
     padding: 6rem;
     width: 50%; }
+    @media (max-width: 56.25em) {
+      .book__form {
+        padding: 3rem;
+        width: 100%; } }
 
 /* Components */
 .btn, .btn:link, .btn:visited {
@@ -587,6 +597,9 @@ body {
   border-bottom: 3px solid transparent;
   width: 90%;
   display: block; }
+  @media (max-width: 37.5em) {
+    .form__input {
+      width: 100%; } }
   .form__input:focus {
     outline: none;
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
@@ -613,6 +626,10 @@ body {
 .form__radio-group {
   width: 49%;
   display: inline-block; }
+  @media (max-width: 37.5em) {
+    .form__radio-group {
+      width: 100%;
+      margin-bottom: 2rem; } }
 
 .form__radio-label {
   font-size: 1.6rem;
@@ -674,21 +691,34 @@ body {
     border-radius: 3px;
     display: table;
     transform: translate(-50%, -50%) scale(0.5);
-    transition: all .3s; }
+    transition: all 0.3s; }
+    @media (max-width: 75em) {
+      .popup__content {
+        width: 90%; } }
+    @media (max-width: 37.5em) {
+      .popup__content {
+        width: 95%; } }
   .popup:target .popup__content {
     transform: translate(-50%, -50%) scale(1); }
   .popup__left {
     width: 33.3333%;
     display: table-cell;
     vertical-align: middle; }
+    @media (max-width: 56.25em) {
+      .popup__left {
+        display: block;
+        width: 100%; } }
   .popup__right {
     width: 66.6666%;
     display: table-cell;
-    vertical-align: middle;
+    vertical-align: auto;
     padding: 3rem 5rem; }
+    @media (max-width: 56.25em) {
+      .popup__right {
+        padding: 1rem 3rem;
+        vertical-align: top; } }
   .popup__img {
     display: block;
-    object-fit: cover;
     width: 100%; }
   .popup__text {
     font-size: 1.4rem;
@@ -703,6 +733,11 @@ body {
     -webkit-hyphens: auto;
     -ms-hyphens: auto;
     hyphens: auto; }
+    @media (max-width: 56.25em) {
+      .popup__text {
+        column-count: 1;
+        column-gap: none;
+        column-rule: none; } }
   .popup__close:link, .popup__close:visited {
     text-decoration: none;
     color: inherit;

@@ -12,16 +12,20 @@
   opacity: 0;
   visibility: hidden;
 
-
   &:target {
     //using anchor elements in html
     opacity: 1;
     visibility: visible;
   }
 
- 
   &__content {
     width: 75%;
+    @include respond(tab-land) {
+      width: 90%;
+    }
+    @include respond(phone) {
+      width: 95%;
+    }
     //height: 50rem; //for testing propouses
     background-color: $color-white;
     box-shadow: 0 2rem 4rem rgba($color-black, 0.2);
@@ -29,27 +33,34 @@
     border-radius: 3px;
     display: table;
     transform: translate(-50%, -50%) scale(0.5);
-    transition: all .3s;
+    transition: all 0.3s;
   }
 
-  &:target &__content{
-      transform: translate(-50%, -50%) scale(1);
+  &:target &__content {
+    transform: translate(-50%, -50%) scale(1);
   }
 
   &__left {
     width: 33.3333%;
     display: table-cell;
     vertical-align: middle;
+    @include respond(tab-port) {
+      display: block;
+      width: 100%;
+    }
   }
   &__right {
     width: 66.6666%;
     display: table-cell;
-    vertical-align: middle;
+    vertical-align: auto;
     padding: 3rem 5rem;
+    @include respond(tab-port) {
+      padding: 1rem 3rem;
+      vertical-align: top;
+    }
   }
   &__img {
     display: block;
-    object-fit: cover;
     width: 100%;
   }
   &__text {
@@ -61,6 +72,12 @@
     column-count: 2;
     column-gap: 4rem;
     column-rule: 1px solid $color-grey-light-2;
+
+    @include respond(tab-port) {
+      column-count: 1;
+      column-gap: none;
+      column-rule: none;
+    }
 
     text-align: justify;
     -moz-hyphens: auto;

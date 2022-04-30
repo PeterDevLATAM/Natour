@@ -17,8 +17,8 @@
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
     position: relative; /* That makes the element a reference for the absolute position childs */
 
-    @media (min-resolution: 192dpi) and (min-width: 37.5em) , // a comma is like an or
-    (min-width: 125em){  //from 192dpi forward (mac retina display) 
+    @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em) , // a comma is like an or
+    only screen and (min-width: 125em){  //from 192dpi forward (mac retina display) 
       background-image: linear-gradient(
         to right,
         rgba($color-primary-light, 0.8),
